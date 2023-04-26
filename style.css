@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    height: 100vh;
+}
+
+.box{
+    background: rgb(0, 150, 136);
+    background: linear-gradient(180deg,rgb(0, 150, 136) 15%, rgb(218, 219, 210) 15%); 
+    align-items: center;
+    display: flex;
+}
+
+
+/** UTILITY**/
+
+.d-flex{
+    display: flex;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+
+.container{
+    width: 70%;
+    
+    margin: auto;
+    display: flex;
+}
+
+.user-1{
+    align-items: center;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.menu-contatti{
+    background-color: white;
+    width: 40%;
+}
+
+.menu-contatti img{
+    width: 10%;
+    border-radius: 50%;
+}
+
+
+.messaggi{
+    background-color: chartreuse;
+    width: 60%;
+}
+
+.icons-menu{
+    padding: 20px;
+}
+
+.icons-menu a{
+    padding: 5px;
+    font-size: 20px;
+    color: gray;
+}
+
+.menu-notifiche{
+    background-color: aqua;
+    align-items: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.menu-notifiche div i{
+    font-size: 30px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#addon-wrapping{
+    background-color: white;
+    border-right: none;
+}
+
+#search{
+    border-left: none;
+    font-size: 12px;
+    background-color: #FFFFFF;
+}
