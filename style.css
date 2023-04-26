@@ -40,20 +40,30 @@
     padding: 5px;
 }
 
+.user-1 img{
+    width: 15%;
+    border-radius: 50%;
+    padding: 5px;
+}
+
 .menu-contatti{
     background-color: white;
     width: 40%;
 }
 
 .menu-contatti img{
-    width: 10%;
+    width: 15%;
     border-radius: 50%;
 }
 
 
-.messaggi{
-    background-color: chartreuse;
+.conversation{
     width: 60%;
+}
+
+.chat{
+    background-image:url("./img/mine.jpg");
+    height: 80%;
 }
 
 .icons-menu{

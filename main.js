@@ -3,6 +3,7 @@ const{createApp} = Vue
 createApp({
     data(){
         return{
+            activeContact:{},
             contacts: [
                 {
                     name: 'Michele',
@@ -168,11 +169,20 @@ createApp({
             ]
         }
     },
+    
     created(){
-
+        this.active
     },
-
     methods:{
-
+        changeConversation(index) {
+            this.contacts.forEach((contact, i) => {
+              if (i === index) {
+                contact.visible = true;
+                this.activeContact = contact;
+              } else {
+                contact.visible = false;
+              }
+            });
+          }
     },
 }).mount("#app")
