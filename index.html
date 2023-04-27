@@ -49,16 +49,18 @@
     
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input id="search" type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input id="search" type="text" v-model="filterInput" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
     
                     <div class="contacts">
-                        <div class="d-flex p-3" v-for="(contact, index) in contacts" :key="index" @click="changeConversation(index)">
-                            <img :src="contact.avatar" :alt="contact.name">
-                            <div>
-                                <h3>{{ contact.name }}</h3>
-                                <span v-if="contact.visible">Online</span>
-                                <span v-else>Offline</span>
+                        <div  v-for="(contact, index) in contacts" :key="index" @click="changeConversation(index)">
+                            <div class="d-flex p-3" v-if="contact.name.toLowerCase().includes(filterInput)">
+                                <img :src="contact.avatar" :alt="contact.name">
+                                <div>
+                                    <h3>{{ contact.name }}</h3>
+                                    <span v-if="contact.visible">Online</span>
+                                    <span v-else>Offline</span>
+                                </div>
                             </div>
                         </div>
                     </div>                        
@@ -84,11 +86,11 @@
                         </div>
                     </div>
                     <div class="chat">
-                        <div v-for="(message, index) in activeContact.messages" :key="index">
+                        <div :class="message.status" v-for="(message, index) in activeContact.messages" :key="index">
                         
-                            <p :class="{ 'sent-message': message.status === 'sent', 'received-message': message.status === 'received' }">{{ message.message }}</p>
+                            <p >{{ message.message }}</p>
                         
-                            <span :class="{ 'sent-time': message.status === 'sent', 'received-time': message.status === 'received' }">{{ message.date }}</span>
+                            <span >{{ message.date }}</span>
                         </div>
 
                     </div>
@@ -97,7 +99,7 @@
                             <i class="fa-solid fa-face-smile fs-3"></i>
                         </div>
                         <div class="w-75">
-                            <input class="w-100 rounded" type="text" placeholder="Scrivi un messaggio">
+                            <input class="w-100 rounded" v-model="valueInput" @KeyUp.enter="addMessage()" type="text" placeholder="Scrivi un messaggio">
                         </div>
                         <div>
                             <i class="fa-solid fa-microphone fs-3"></i>

@@ -4,6 +4,8 @@ createApp({
     data(){
         return{
             activeContact:{},
+            valueInput:"",
+            filterInput: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -183,6 +185,29 @@ createApp({
                 contact.visible = false;
               }
             });
-          }
+        },
+        addMessage(){
+            if(this.valueInput != ''){
+                let sentMessage = {
+                    date: '10/01/2020 15:30:55',
+                     message: this.valueInput,
+                     status: 'sent'
+                }
+                this.activeContact.messages.push(sentMessage)
+                this.valueInput= ''
+                setTimeout( () =>{
+                    let receivedMessage = {
+                        date: '10/01/2020 15:30:55',
+                         message: "ok",
+                         status: 'received'
+                    }
+                    this.activeContact.messages.push(receivedMessage)
+                    this.valueInput= ""
+
+                },1000)
+            }
+            
+        },  
     },
+    
 }).mount("#app")
